@@ -83,7 +83,7 @@ router.get("/:id/data", authenticateToken, async (req, res) => {
   }
 });
 
-router.post("/by-admin", async (req, res) => {
+router.post("/by-admin", authenticateToken, async (req, res) => {
   try {
     const { adminID } = req.body;
 
@@ -101,13 +101,15 @@ router.post("/by-admin", async (req, res) => {
   }
 });
 
-router.get("/", async(req,res)=>{
-  try{
+router.get("/", async (req, res) => {
+  try {
     const files = await File.find();
-    res.json({files});
-  }catch(error){
-    res.status(500).json({ message: "Something went wrong", error: error.message });
+    res.json({ files });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: error.message });
   }
-})
+});
 
 export default router;
