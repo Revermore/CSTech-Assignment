@@ -11,7 +11,7 @@ const AdminTaskView = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/distribution/admin-files",
+          "https://cs-tech-assignment.vercel.app/distribution/admin-files",
           {
             headers: {
               Authorization: `Bearer ${token}`,

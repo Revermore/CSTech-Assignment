@@ -39,9 +39,13 @@ function AgentForm() {
         adminId: user?._id, // sending adminId from user context
       };
 
-      const res = await axios.post("http://localhost:5000/agent/", payload, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.post(
+        "https://cs-tech-assignment.vercel.app/agent/",
+        payload,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       toast.success("Agent created successfully 🎉");
       setFormData({

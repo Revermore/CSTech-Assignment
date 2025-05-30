@@ -17,8 +17,8 @@ const LoginForm = () => {
     try {
       const url =
         role === "admin"
-          ? "http://localhost:5000/admin/login"
-          : "http://localhost:5000/agent/login";
+          ? "https://cs-tech-assignment.vercel.app/admin/login"
+          : "https://cs-tech-assignment.vercel.app/agent/login";
       const data = role === "admin" ? { email, password } : { name, password };
 
       const res = await axios.post(url, data);

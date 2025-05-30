@@ -114,9 +114,12 @@ function UploadFilePage() {
     try {
       console.log(user._id);
       // Step 1: Fetch agents
-      const agentRes = await axios.get("http://localhost:5000/agent/", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const agentRes = await axios.get(
+        "https://cs-tech-assignment.vercel.app/agent/",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       const agents = agentRes.data;
       console.log(agents);
       const numAgents = agents.agents.length;
@@ -147,7 +150,7 @@ function UploadFilePage() {
         console.log("endIndex: ", endIndex);
         console.log("AgentID: ", agents.agents[i]._id);
         const res = await axios.post(
-          "http://localhost:5000/distribution/",
+          "https://cs-tech-assignment.vercel.app/distribution/",
           {
             fileID,
             startIndex,
@@ -200,11 +203,15 @@ function UploadFilePage() {
         data: cleanedData,
       };
 
-      const res = await axios.post("http://localhost:5000/file/", payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.post(
+        "https://cs-tech-assignment.vercel.app/file/",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (res.status === 201) {
         const fileID = res.data._id;
         const distributionResults = await distributeDocuments(

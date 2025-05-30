@@ -14,7 +14,7 @@ const AdminSignupForm = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/admin/", form);
+      await axios.post("https://cs-tech-assignment.vercel.app/admin/", form);
       toast.success("Admin registered successfully. You can login now.");
       navigate("/");
     } catch (err) {

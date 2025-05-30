@@ -15,7 +15,7 @@ const AgentDashboard = () => {
     const fetchAgentFiles = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/distribution/agent-files/${user._id}`,
+          `https://cs-tech-assignment.vercel.app/distribution/agent-files/${user._id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ const AgentDashboard = () => {
   const handleProcess = async (fileId, indexId) => {
     try {
       await axios.put(
-        `http://localhost:5000/file/${fileId}/status`,
+        `https://cs-tech-assignment.vercel.app/file/${fileId}/status`,
         {
           index: indexId,
           agentId: user._id,
